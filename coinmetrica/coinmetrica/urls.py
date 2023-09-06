@@ -22,5 +22,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('coinprice/', include('coinprice.urls')),
+    path('', include('coinprice.urls')),
 ]
+
+handler404 = pageNotFound
