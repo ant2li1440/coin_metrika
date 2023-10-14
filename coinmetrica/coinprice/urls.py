@@ -4,5 +4,5 @@ from .views import *
 
 urlpatterns = [
     path('', index),
-    path('price/<slug:priceid>/', price),
+    path('about/', about)
 ]

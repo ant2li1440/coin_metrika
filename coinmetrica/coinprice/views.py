@@ -1,9 +1,15 @@
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
+
+from .models import *
+menu = ['Title', 'About']
 def index(request):
-    return HttpResponse("qqq")
+    posts = coins.objects.all()
+    return render(request, 'coinprice/index.html', {'posts': posts, 'menu': menu, 'title':'Title'})
 
+def about(request):
+    return render(request, 'coinprice/about.html', {'menu': menu, 'title': 'About'})
 def price(request, priceid):
     print(request.GET)
     return HttpResponse(f"<h1>Price</h1><p>{priceid}</p>")
